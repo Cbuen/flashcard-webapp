@@ -14,8 +14,17 @@
   perspective: 1000px;
 }
 
+/* Media query for large screens */
+@media (min-width: 1024px) {
+  .flip-card {
+    transform: scale(1.2); /* Scale up the entire flip card */
+    width: 360px; /* Adjust width to maintain proportions */
+    height: 240px; /* Adjust height to maintain proportions */
+  }
+}
+
 .flip-card:hover {
-  transform: scale(1.05); /* Slightly scale up the icon on hover for emphasis */
+  transform: scale(1.3); /* Slightly scale up the icon on hover for emphasis */
 }
 
 .flip-card-inner {
