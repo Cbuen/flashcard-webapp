@@ -13,19 +13,42 @@
 </head>
 
 <body class="bg-gray-100">
-    <div class="container flex flex-row w-screen justify-center items-center mx-auto">
-        <div class="bg-gray-200 flex flex-col px-36 rounded-lg shadow-md">
-            <div class="flip-card my-20">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front bg-white p-4 rounded-lg shadow-sm">
-                        <h1 class="font-semibold text-gray-600">test front</h1>
-                    </div>
-                    <div class="flip-card-back bg-white p-4 rounded-lg shadow-sm">
-                        <h1 class="font-semibold text-gray-600">test back</h1>
+    <div class="flex flex-row">
+        <div class="container flex flex-row w-screen justify-center items-center mx-auto">
+            <div class="bg-gray-200 flex flex-col px-36 rounded-lg shadow-md">
+                <div class="flip-card my-20">
+                    <div class="flip-card-inner">
+                        <div class="flex flip-card-front bg-white p-4 rounded-lg shadow-sm justify-center items-center">
+                            <h1 class="font-semibold text-gray-600">Welcome</h1>
+                        </div>
+                        <div class="flex flip-card-back bg-white p-4 rounded-lg shadow-sm justify-center items-center">
+                            <h1 class="font-semibold text-gray-600">User</h1>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="flex flex-col md:px-36 md:mx-40 md:my-20 bg-gray-200 rounded-lg shadow-md">
+            <ul class="grid grid-cols-3 gap-4 auto-rows-max -mx-8 mt-2" id="card-list-container">
+                <!-- Title at the top -->
+                <li class="col-span-3 flex items-center justify-center">
+                    <i class="ri-list-unordered text-3xl" id="glow-icon"></i>
+                    <h1 class="font-semibold text-xl md:mx-44" id="card-set-title">Sets</h1>
+                </li>
+
+                <!-- Border under the title -->
+                <li class="col-span-3 border-b border-gray-400 -mt-2"></li>
+
+                <!-- Card items -->
+                <li class="bg-yellow-500 p-4 col-span-3 flex items-center justify-center rounded-lg shadow-sm">
+                    <h3 class="font-medium text-white">Spanish</h3>
+                </li>
+                <li class="bg-purple-500 p-4 col-span-3 flex items-center justify-center rounded-lg shadow-sm">
+                    <h3 class="font-medium text-white">German</h3>
+                </li>
+            </ul>
+        </div>
+
     </div>
     <script src="/scripts.js"></script>
 </body>
