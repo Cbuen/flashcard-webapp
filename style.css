@@ -79,3 +79,8 @@
 #glow-icon:hover {
   transform: scale(1.05); /* Slightly scale up the icon on hover for emphasis */
 }
+
+.relative.flex.flex-col.bg-gray-200.rounded-lg.shadow-md {
+  transition: height 0.5s ease-in-out; /* Smooth transition for height */
+  overflow: hidden; /* Prevent content overflow during animation */
+}
