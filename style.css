@@ -60,6 +60,15 @@
   transform: rotateY(180deg);
 }
 
+.card-item {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.card-item.hidden {
+  opacity: 0;
+}
+
 #glow-icon {
   width: 100px;
   height: 100px;
