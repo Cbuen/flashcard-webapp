@@ -14,10 +14,16 @@
 </head>
 
 <body class="bg-gray-100">
+    <nav class="flex flex-row space-x-10">
+        <ul>
+            <li><a href="/members">Home</a></li>
+            <li><a href="/create-user">Create Account</a></li>
+        </ul>
+    </nav>
     <div class="flex flex-row">
         <div class="container flex flex-row w-screen justify-center items-center mx-auto">
             <div class="bg-gray-200 flex flex-col px-36 rounded-lg shadow-md">
-                <h1 class="font-semibold flex justify-center my-4 text-xl" id="lang-header">Test Language</h1>
+                <h1 class="font-semibold flex justify-center my-4 text-xl" id="lang-header">Select a set</h1>
                 <button><i class="text-2xl ri-arrow-left-fill flex justify-start md:mt-2 md:-mb-10"></i></button>
                 <button><i class="text-2xl ri-arrow-right-fill flex justify-end mt-2 -mb-10"></i></button>
                 <div class="flip-card my-20">
@@ -48,18 +54,12 @@
                 <li class="col-span-3 border-b border-gray-400 -mt-2"></li>
 
                 <!-- Card items -->
+                {% for set in card_set_names %}
                 <li
                     class="bg-yellow-500 p-4 col-span-3 flex items-center justify-center rounded-lg shadow-sm w-full card-item">
-                    <button class="font-medium text-white card-set-button">Spanish</button>
+                    <button class="font-medium text-white card-set-button">{{ set }}</button>
                 </li>
-                <li
-                    class="bg-purple-500 p-4 col-span-3 flex items-center justify-center rounded-lg shadow-sm w-full card-item">
-                    <button class="font-medium text-white card-set-button">German</button>
-                </li>
-                <li
-                    class="bg-red-500 p-4 col-span-3 flex items-center justify-center rounded-lg shadow-sm w-full card-item">
-                    <button class="font-medium text-white card-set-button">French</button>
-                </li>
+                {% endfor %}
             </ul>
         </div>
 
