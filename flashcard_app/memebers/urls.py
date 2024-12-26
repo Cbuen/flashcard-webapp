@@ -5,4 +5,5 @@ urlpatterns = [
     path("members/", views.members, name="memebers"),
     path("create-user/", views.create_user, name="create_user"),
     path("success_page/", views.success_page, name="success_page"),
+    path("load_set", views.load_set, name="load_set"),
 ]

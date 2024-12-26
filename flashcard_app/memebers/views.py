@@ -26,3 +26,8 @@ def create_user(request):
 
 def success_page(request):
     return render(request, "success.html")
+
+
+# for testing purposes
+def load_set(request):
+    return render(request, "load_set.html")

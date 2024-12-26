@@ -11,13 +11,15 @@ const words = [w1, w2, w3];
 // card-list-button
 const card_button = document.getElementById("card-list-button");
 const card_items = document.getElementsByClassName("card-item");
-const flashcardContainer = document.querySelector('.relative.flex.flex-col.bg-gray-200.rounded-lg.shadow-md');
+const flashcardContainer = document.querySelector(
+  ".relative.flex.flex-col.bg-gray-200.rounded-lg.shadow-md"
+);
 
 card_button.addEventListener("click", function () {
   for (let i = 0; i < card_items.length; i++) {
     if (card_items[i].classList.contains("hidden")) {
       card_items[i].classList.remove("hidden");
-      allHidden = false
+      allHidden = false;
     } else {
       card_items[i].classList.add("hidden");
       allHidden = true;
@@ -35,12 +37,12 @@ card_button.addEventListener("click", function () {
 });
 
 // card-set-button
-const card_buttons = document.getElementsByClassName('card-set-button');
-const language_header = document.getElementById('lang-header');
+const card_buttons = document.getElementsByClassName("card-set-button");
+const language_header = document.getElementById("lang-header");
 
 // Add click event listener to each card-set-button
-for (let i = 0; i < card_buttons.length; i++) { 
-  card_buttons[i].addEventListener('click', function () {
+for (let i = 0; i < card_buttons.length; i++) {
+  card_buttons[i].addEventListener("click", function () {
     // Update the language header with the clicked button's text
     language_header.textContent = this.textContent;
   });
