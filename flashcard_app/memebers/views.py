@@ -30,6 +30,5 @@ def success_page(request):
 
 # for testing purposes
 def load_set(request):
-    # set_id = 1
     card_set = Cards.objects.filter(setid=1)
     return render(request, "load_set.html", {"card_set": card_set})

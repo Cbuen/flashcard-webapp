@@ -94,3 +94,8 @@
   opacity: 1;
   transition: opacity 0.5s ease-in;
 }
+
+.hidden {
+  display: none;
+}
+
