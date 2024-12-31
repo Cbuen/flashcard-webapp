@@ -7,10 +7,8 @@ from .models import *
 # Create your views here.
 
 
-def members(request):
-    # set names list
-    card_set_names = Sets.objects.values_list("setname", flat=True)
-    return render(request, "index.html", {"card_set_names": card_set_names})
+def home(request):
+    return render(request, "index.html")
 
 
 def create_user(request):
@@ -62,3 +60,7 @@ def study(request):
             "user_selected_set_id": user_selected_set[1],
         },
     )
+
+
+def edit(request):
+    return render(request, "edit.html")
