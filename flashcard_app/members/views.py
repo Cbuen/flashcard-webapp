@@ -63,4 +63,6 @@ def study(request):
 
 
 def edit(request):
-    return render(request, "edit.html")
+    card_sets = Sets.objects.all()
+
+    return render(request, "edit.html", {'card_sets': card_sets})

@@ -75,12 +75,22 @@ WSGI_APPLICATION = "flashcard_app.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# windows password: root
+# mac os password: rootroot
+
+schema_title = {"windows": "flashcards1",
+                "macbook": "flashcards"}
+
+
+schema_passwords = {"windows": "root",
+                "macbook": "rootroot"}
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "flashcards",
+        "NAME": schema_title["windows"],
         "USER": "root",
-        "PASSWORD": "rootroot",
+        "PASSWORD": schema_passwords["windows"],
         "HOST": "localhost",
         "PORT": "3306",
     }
