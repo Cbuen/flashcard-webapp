@@ -48,9 +48,37 @@
                 </div>
             </div>
         </div>
+
+        <!-- card set list -->
+        <div
+            class="relative flex flex-col sm:px-36 sm:mx-40 sm:my-20 md:px-36 md:mx-40 md:my-20 bg-gray-200 rounded-lg shadow-md card-set-container">
+            <ul class="grid grid-cols-3 gap-4 auto-rows-max mt-2" id="card-list-container">
+                <!-- Title at the top -->
+                <li class="col-span-3 flex items-center justify-center">
+                    <button id="card-list-button"><i class="absolute top-1 left-6 ri-list-unordered text-3xl"
+                            id="glow-icon"></i></button>
+                    <h1 class="font-semibold text-xl mx-44" id="card-set-title">Sets</h1>
+                </li>
+
+                <!-- Border under the title -->
+                <li class="col-span-3 border-b border-gray-400 -mt-2"></li>
+
+                <!-- Card items -->
+                {% for card in card_set_list %}
+                <li
+                    class="bg-blue-300 p-4 col-span-3 flex items-center justify-center rounded-lg shadow-sm w-full card-item">
+                    <button class="font-medium text-white card-set-button" id="{{ card.setid }}">
+                        <h1>{{ card.setname }}</h1>
+                    </button>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
+
     <script src="{% static 'next-card.js' %}"></script>
+    <script src="{% static 'scripts.js' %}"></script>
 </body>
-{% endblock %}
+{% endblock content %}
 
 </html>

@@ -1,8 +1,3 @@
-// used to flip card
-document.querySelector(".flip-card").addEventListener("click", function () {
-  this.classList.toggle("flipped");
-});
-
 // card-list-button
 const card_button = document.getElementById("card-list-button");
 const card_items = document.getElementsByClassName("card-item");

@@ -28,7 +28,9 @@ def success_page(request):
     return render(request, "success.html")
 
 
-# for testing purposes
-def load_set(request):
+def study(request):
+    card_sets = Sets.objects.all()
     card_set = Cards.objects.filter(setid=1)
-    return render(request, "load_set.html", {"card_set": card_set})
+    return render(
+        request, "study.html", {"card_set": card_set, "card_set_list": card_sets}
+    )
