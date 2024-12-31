@@ -19,7 +19,9 @@
     <div class="flex flex-row">
         <div class="container flex flex-row w-screen justify-center items-center mx-auto">
             <div class="bg-gray-200 flex flex-col px-36 rounded-lg shadow-md">
-                <h1 class="font-semibold flex justify-center my-4 text-xl" id="lang-header">Select a set</h1>
+
+                <h1 class="font-semibold flex justify-center my-4 text-xl" id="lang-header">{{ user_selected_set_name }}
+                </h1>
 
                 <!-- card container -->
                 <div class="card-container">
@@ -67,9 +69,14 @@
                 {% for card in card_set_list %}
                 <li
                     class="bg-blue-300 p-4 col-span-3 flex items-center justify-center rounded-lg shadow-sm w-full card-item">
-                    <button class="font-medium text-white card-set-button" id="{{ card.setid }}">
-                        <h1>{{ card.setname }}</h1>
-                    </button>
+                    <form action="/study" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button type="submit" class="font-medium text-white card-set-button" id="{{ card.setid }}"
+                            name="selected_card" value="{{ card.setname }}|{{ card.setid }}">
+                            <h1>{{ card.setname }}</h1>
+                        </button>
+                    </form>
                 </li>
                 {% endfor %}
             </ul>
