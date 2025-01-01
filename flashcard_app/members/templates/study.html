@@ -72,12 +72,12 @@
                 {% for card in card_set_list %}
                 <li
                     class="bg-blue-300 p-4 col-span-3 flex items-center justify-center rounded-lg shadow-sm w-full card-item">
-                    <form action="/study" method="post">
+                    <form action="/study/" method="post">
                         {% csrf_token %}
                         {{ form }}
                         <button type="submit" class="font-medium text-white card-set-button" id="{{ card.setid }}"
                             name="selected_card" value="{{ card.setname }}|{{ card.setid }}">
-                            <h1>{{ card.setname }}</h1>
+                            {{ card.setname }}
                         </button>
                     </form>
                 </li>
