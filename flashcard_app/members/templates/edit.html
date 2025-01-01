@@ -25,8 +25,7 @@
                 <h1 class="text-center font-semibold">Study Editor</h1>
                 <div class="grid grid-cols-3 gap-4 mt-4">
                     {% for card in card_sets %}
-                    <button
-                        class="font-medium text-white card-set-button bg-blue-500 hover:bg-blue-700 p-4 rounded"
+                    <button class="font-medium text-white card-set-button bg-blue-500 hover:bg-blue-700 p-4 rounded"
                         id="{{ card.setid }}" name="selected_card" value="{{ card.setname }}|{{ card.setid }}">
                         <h1>{{ card.setname }}</h1>
                     </button>
@@ -34,16 +33,24 @@
                 </div>
             </div>
         </div>
+
         <!-- edit container -->
-        <div class="flex justify-center sm:mt-24 lg:mt-40">
-            <div class="bg-gray-300">
-                <h1 class="semi-bold">
-                    Editor
-                </h1>
+        <div class=" lg:mt-24 flex justify-center">
+            <div class="bg-gray-300 p-4">
+                <h1 class="text-center font-semibold">Editor</h1>
+                <div class="grid grid-cols-3 gap-4 mt-4">
+                    {% for card in card_set %}
+                    <button class="font-medium text-white card-set-button bg-blue-500 hover:bg-blue-700 p-4 rounded"
+                        id="{{ card.cardid }}" name="selected_card"
+                        value="{{ card.setname }}|{{ card.setid }}|{{ card.cardid }}" onclick="buttonTest(this)">
+                        <h1>{{ card.term }}</h1>
+                    </button>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-
+    <script src="{% static 'dialog-edit.js' %}"></script>
 </body>
 {% endblock %}
 
