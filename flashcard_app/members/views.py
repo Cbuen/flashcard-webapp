@@ -64,6 +64,23 @@ def study(request):
 
 def edit(request):
     card_sets = Sets.objects.all()
-    card_set = Cards.objects.filter(setid=1)
+    user_selected_set = 1
+
+    if request.method == "POST":
+        user_selected_set = request.POST.get("selected_set")
+        user_selected_set = user_selected_set.split("|")
+        selected_set_id = user_selected_set[1]
+
+        card_set = Cards.objects.filter(setid=selected_set_id)
+        return render(request, "edit.html", {"card_sets": card_sets, "card_set": card_set})
+
+    card_set = Cards.objects.filter(setid=user_selected_set)
 
     return render(request, "edit.html", {"card_sets": card_sets, "card_set": card_set})
+
+
+def edit_card_set(request):
+    print(request.GET['term'])  
+    card_setname = "spanish"
+
+    return redirect('edit') 
