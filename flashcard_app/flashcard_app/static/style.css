@@ -84,3 +84,7 @@
   transition: height 0.5s ease-in-out; /* Smooth transition for height */
   overflow: hidden; /* Prevent content overflow during animation */
 }
+
+h4#hover-2 {
+  display: none;
+}
