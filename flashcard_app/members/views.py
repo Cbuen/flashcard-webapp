@@ -72,13 +72,23 @@ def edit(request):
         selected_set_id = user_selected_set[1]
 
         card_set = Cards.objects.filter(setid=selected_set_id)
-        return render(request, "edit.html", {"card_sets": card_sets, "card_set": card_set,
-        "card_setid": selected_set_id})
+        return render(
+            request,
+            "edit.html",
+            {
+                "card_sets": card_sets,
+                "card_set": card_set,
+                "card_setid": selected_set_id,
+            },
+        )
 
     card_set = Cards.objects.filter(setid=user_selected_set)
 
-    return render(request, "edit.html", {"card_sets": card_sets, "card_set": card_set, "card_setid": 
-                                         user_selected_set})
+    return render(
+        request,
+        "edit.html",
+        {"card_sets": card_sets, "card_set": card_set, "card_setid": user_selected_set},
+    )
 
 
 def edit_card_set(request):
@@ -92,3 +102,14 @@ def edit_card_set(request):
         form = cardForm()
 
     return render(request, "edit", {"form": form})
+
+
+def remove_last_card(request):
+    last_card = Cards.objects.last()
+
+    if last_card:
+        last_card.delete()
+        print("Removed card")
+    else:
+        print("No card found")
+    return redirect("edit")
