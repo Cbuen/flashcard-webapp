@@ -1,5 +1,5 @@
 from django import forms
-from .models import Users
+from .models import Users, Cards
 
 
 class UserForm(forms.ModelForm):
@@ -15,4 +15,14 @@ class UserForm(forms.ModelForm):
             "userfirstname": forms.TextInput(attrs={"class": "form-control"}),
             "userlastname": forms.TextInput(attrs={"class": "form-control"}),
             "useremailaddress": forms.EmailInput(attrs={"class": "form-control"}),
+        }
+
+class cardForm(forms.ModelForm):
+    class Meta:
+        model = Cards
+        fields = ["term", "definition", "setid"]
+        widgets = {
+            "term": forms.TextInput(attrs={"class": "form-control"}),
+            "definition": forms.TextInput(attrs={"class": "form-control"}),
+            "setid": forms.NumberInput(attrs={"class": "form-control"}),
         }

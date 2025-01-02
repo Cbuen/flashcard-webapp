@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from .forms import UserForm
+from .forms import UserForm, cardForm
 from .models import *
 
 # Create your views here.
@@ -72,15 +72,23 @@ def edit(request):
         selected_set_id = user_selected_set[1]
 
         card_set = Cards.objects.filter(setid=selected_set_id)
-        return render(request, "edit.html", {"card_sets": card_sets, "card_set": card_set})
+        return render(request, "edit.html", {"card_sets": card_sets, "card_set": card_set,
+        "card_setid": selected_set_id})
 
     card_set = Cards.objects.filter(setid=user_selected_set)
 
-    return render(request, "edit.html", {"card_sets": card_sets, "card_set": card_set})
+    return render(request, "edit.html", {"card_sets": card_sets, "card_set": card_set, "card_setid": 
+                                         user_selected_set})
 
 
 def edit_card_set(request):
-    print(request.GET['term'])  
-    card_setname = "spanish"
 
-    return redirect('edit') 
+    if request.method == "POST":
+        form = cardForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("edit")  # Make sure you have this URL name defined
+    else:
+        form = cardForm()
+
+    return render(request, "edit", {"form": form})

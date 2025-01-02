@@ -47,11 +47,11 @@
                     font-bold py-1 px-2 border border-red-700 rounded"><i class="ri-close-fill"></i></button>
                 </div>
                 <div class="grid grid-cols-3 gap-4 mt-4">
-                    {% for card in card_set %}
-                    <button data-term="{{ card.term }}" data-definition="{{ card.definition }}"
+                    {% for card in card_set %}  
+                    <button data-term="{{ card.term }}" data-definition="{{ card.definition }}" data-selectedset="{{ card_setid }}"
                         class="font-medium text-white card-set-button bg-blue-500 hover:bg-blue-700 p-4 rounded"
-                        id="{{ card.cardid }}" name="selected_card" value="{{ card.setid }}|{{ card.cardid }}"
-                        onclick="buttonTest(this)">
+                        id="{{ card.cardid }}" name="selected_card" value="{{ card.setid }}|{{ card.cardid }}" 
+                        onclick="userSet(this)">
                         <h1>{{ card.term }}</h1>
                     </button>
                     {% endfor %}
@@ -62,30 +62,35 @@
         <!-- term & definition editor container -->
         <div class=" lg:mt-24 flex justify-center">
             <div class="bg-gray-300 p-4">
+                <form action="./card-set" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
                 <div class="flex flex-row justify-center">
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold 
+                    py-2 px-2 border border-green-700 rounded"><i class="ri-add-fill"></i></button>
                     <h1 class="text-center font-semibold lg:mx-24">Term & Definition Editor</h1>
-                    <button clasxs="font-semibold bg-red-500 hover:bg-red-700 text-white 
+                    <button class="font-semibold bg-red-500 hover:bg-red-700 text-white 
                     font-bold py-1 px-2 border border-red-700 rounded"><i class="ri-close-fill"></i></button>
                 </div>
-                <form action="./card-set" method="get">
-                    {% csrf_token %}
-                    {{ form }}
                 <div class="flex flex-col gap-4 mt-4">
                     <label for="term">Term:</label>
-                    <input class="text-center font-semibold clear-input" name="term" type="text" placeholder="Hola">
+                    <input class="text-center font-semibold clear-input" name="term" type="text" placeholder="Select a">
 
-                    <label for="Definition">Definition:</label>
-                    <input class="text-center font-semibold clear-input" name="Definition" type="text" placeholder="Hello">
+                    <label for="definition">Definition:</label>
+                    <input class="text-center font-semibold clear-input" name="definition" type="text" placeholder="card above!">
+
+                    <label for="setid">Set ID:</label>
+                    <input class="text-center font-semibold clear-input" name="setid" type="integer" placeholder=1>
+                </form>
 
                     <div class="flex flex-row lg:space-x-32 justify-center gap-4 mt-2">
                         <button
                             onclick="clearInput()" class="bg-red-500 hover:bg-red-700 text-white font-bold 
                             py-2 px-4 border border-red-700 rounded">Clear</button>
-                        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold 
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold 
                         py-2 px-4 border border-green-700 rounded">Save</button>
                     </div>
                 </div>
-                </form>
             </div>
         </div>
     </div>
