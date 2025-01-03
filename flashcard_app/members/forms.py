@@ -1,5 +1,5 @@
 from django import forms
-from .models import Users, Cards
+from .models import Users, Cards, Sets
 
 
 class UserForm(forms.ModelForm):
@@ -17,6 +17,7 @@ class UserForm(forms.ModelForm):
             "useremailaddress": forms.EmailInput(attrs={"class": "form-control"}),
         }
 
+
 class cardForm(forms.ModelForm):
     class Meta:
         model = Cards
@@ -25,4 +26,17 @@ class cardForm(forms.ModelForm):
             "term": forms.TextInput(attrs={"class": "form-control"}),
             "definition": forms.TextInput(attrs={"class": "form-control"}),
             "setid": forms.NumberInput(attrs={"class": "form-control"}),
+        }
+
+
+#  will remoce userID set for dev purposes
+class createSetForm(forms.ModelForm):
+    class Meta:
+        model = Sets
+        fields = ["userid", "setname", "category"]
+
+        widgets = {
+            "userid": forms.NumberInput(attrs={"class": "form-control"}),
+            "setname": forms.TextInput(attrs={"class": "form-control"}),
+            "category": forms.TextInput(attrs={"class": "form-control"}),
         }

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from .forms import UserForm, cardForm
+from .forms import UserForm, cardForm, createSetForm
 from .models import *
 
 # Create your views here.
@@ -113,3 +113,16 @@ def remove_last_card(request):
     else:
         print("No card found")
     return redirect("edit")
+
+
+def create_set(request):
+    return render(request, "create_set.html")
+
+
+def save_card(request):
+    if request.method == "POST":
+        form = createSetForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    return redirect("create-set")

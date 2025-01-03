@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Flashcard Study</title>
+</head>
+
+{% block content %}
+
+<body class="bg-gray-100">
+    <!-- term & definition editor container -->
+    <div class=" lg:mt-24 flex justify-center">
+        <div class="bg-gray-300 p-4">
+            <form action="/save-card" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="flex flex-row justify-center">
+                    <div class="flex flex-col">
+                        <button class="bg-green-500 hover:bg-green-700 text-white font-bold 
+                    py-2 px-2 border border-green-700 rounded"><i class="ri-add-fill"></i></button>
+                    </div>
+                    <h1 class="text-2xl text-center font-semibold lg:mx-24 p-24">Create Set </h1>
+                    <button class="font-semibold bg-red-500 hover:bg-red-700 text-white 
+                    font-bold h-9 px-2 border border-red-700 rounded"><i class="ri-close-fill"></i></button>
+                </div>
+                <div class="flex flex-col gap-4 mt-4">
+                    <label for="userid">User ID:</label>
+                    <input class="text-center font-semibold clear-input" name="userid" type="text"
+                        placeholder="For dev">
+
+                    <label for="setname">Set Name:</label>
+                    <input class="text-center font-semibold clear-input" name="setname" type="text"
+                        placeholder="setname">
+
+                    <label for="category">Category:</label>
+                    <input class="text-center font-semibold clear-input" name="category" type="text"
+                        placeholder=category>
+            </form>
+
+            <div class="flex flex-row lg:space-x-32 justify-center gap-4 mt-2">
+                <button onclick="clearInput()" class="bg-red-500 hover:bg-red-700 text-white font-bold 
+                            py-2 px-4 border border-red-700 rounded">Clear</button>
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold 
+                        py-2 px-4 border border-green-700 rounded">Save</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="{% static 'dialog-edit.js' %}"></script>
+</body>
+{% endblock %}
+
+</html>
