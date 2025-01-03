@@ -16,7 +16,7 @@ def create_user(request):
         form = UserForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("success_page")  # Make sure you have this URL name defined
+            return redirect("success-page")  # Make sure you have this URL name defined
     else:
         form = UserForm()
     return render(request, "create_user.html", {"form": form})
@@ -72,6 +72,7 @@ def edit(request):
         selected_set_id = user_selected_set[1]
 
         card_set = Cards.objects.filter(setid=selected_set_id)
+        print(selected_set_id)
         return render(
             request,
             "edit.html",
@@ -105,7 +106,11 @@ def edit_card_set(request):
 
 
 def remove_last_card(request):
-    last_card = Cards.objects.last()
+    card_setid = request.POST.get("card_setid")
+
+    print(card_setid)
+
+    last_card = Cards.objects.filter(setid=card_setid).last()
 
     if last_card:
         last_card.delete()

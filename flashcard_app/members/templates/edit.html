@@ -59,10 +59,10 @@
             <div class="bg-gray-300 p-4">
                 <div class="flex flex-row justify-center">
 
-                    <form action="/remove-card" method="get">
+                    <form action="/remove-card/" method="post">
                         {% csrf_token %}
                         {{ form }}
-                        <button class="bg-red-500 hover:bg-red-700 text-white font-bold 
+                        <button name="card_setid" value="{{ card_setid }}" class="bg-red-500 hover:bg-red-700 text-white font-bold 
                     py-1 px-1 border border-red-700 rounded"><i class="ri-subtract-fill"></i></button>
                     </form>
                     <h1 class="text-center font-semibold lg:mx-24">Editor</h1>
