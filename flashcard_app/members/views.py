@@ -121,6 +121,7 @@ def remove_last_card(request):
 
 
 def create_set(request):
+
     return render(request, "create_set.html")
 
 
