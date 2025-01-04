@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from .forms import UserForm, cardForm, createSetForm
+from .forms import UserForm, cardForm, createSetForm, UserCreationForm
 from .models import *
 
 # Create your views here.
@@ -132,3 +132,24 @@ def save_card(request):
             form.save()
 
     return redirect("create-set")
+
+
+def sign_in(request):
+    return render(request, "sign-in.html")
+
+
+def register(request):
+    return render(request, "register_user.html")
+
+
+def register_load(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        print(form)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+        else:
+            form = UserCreationForm()
+
+    return redirect("register")

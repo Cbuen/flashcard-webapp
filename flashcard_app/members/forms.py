@@ -1,5 +1,7 @@
 from django import forms
 from .models import Users, Cards, Sets
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
 class UserForm(forms.ModelForm):

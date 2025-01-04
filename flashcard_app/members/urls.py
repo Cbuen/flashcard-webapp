@@ -10,5 +10,8 @@ urlpatterns = [
     path("edit/card-set", views.edit_card_set, name="card-set"),
     path("remove-card/", views.remove_last_card, name="remove-card"),
     path("create-set/", views.create_set, name="create-set"),
-    path("save-card", views.save_card, name="save-card"),
+    path("save-card/", views.save_card, name="save-card"),
+    path("sign-in/", views.sign_in, name="sign-in"),
+    path("register/", views.register, name="register"),
+    path("register-load/", views.register_load, name="register-load"),
 ]
