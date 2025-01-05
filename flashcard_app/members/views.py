@@ -65,6 +65,7 @@ def study(request):
     )
 
 
+@login_required(login_url="/login")
 def edit(request):
     card_sets = Sets.objects.filter(userid=request.user.id)
     user_selected_set = 1

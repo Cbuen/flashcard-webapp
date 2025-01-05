@@ -18,19 +18,25 @@
 
 <body class="bg-gray-100">
     <!-- flash card sets list -->
-    <div class="flex justify-center items-center">
+    <div class="flex flex-col justify-center items-center gap-10 mt-24">
+        <div class="flex justify-center items-center lava-lamp">
+            <div class="bubble"></div>
+            <div class="bubble1"></div>
+            <div class="bubble2"></div>
+            <div class="bubble3"></div>
+        </div>
         {% if user.is_authenticated %}
         <form action="/logout">
             {% csrf_token %}
             <button class="bg-red-500 hover:bg-red-700 text-white font-bold 
-            py-2 px-4 border border-red-700 rounded lg:mt-44" type="submit">
+            py-2 px-4 border border-red-700 rounded" type="submit">
                 logout
             </button>
         </form>
         {% else %}
         <form action="/login">
             <button class="bg-green-500 hover:bg-green-700 text-white font-bold 
-            py-2 px-4 border border-green-700 rounded lg:mt-44" type="submit">
+            py-2 px-4 border border-green-700 rounded" type="submit">
                 please login
             </button>
         </form>
