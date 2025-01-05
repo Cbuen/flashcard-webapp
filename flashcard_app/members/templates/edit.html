@@ -42,7 +42,7 @@
                                 Set ID:
                                 {{ card.setid}}
                             </h4>
-                            <button
+                            <button onclick="showContainer()"
                                 class="font-medium text-white card-set-button bg-blue-500 hover:bg-blue-700 p-4 rounded"
                                 id="{{ card.setid }}" name="selected_set" value="{{ card.setname }}|{{ card.setid }}">
                                 <h1>{{ card.setname }}</h1>
@@ -55,7 +55,7 @@
         </div>
 
         <!-- edit container -->
-        <div id="edit-continer" class=" lg:mt-24 flex justify-center">
+        <div id="edit-container" class=" lg:mt-24 flex justify-center">
             <div class="bg-gray-300 p-4">
                 <div class="flex flex-row justify-center">
 
@@ -66,8 +66,10 @@
                     py-1 px-1 border border-red-700 rounded"><i class="ri-subtract-fill"></i></button>
                     </form>
                     <h1 class="text-center font-semibold lg:mx-24">Editor</h1>
-                    <button class="font-semibold bg-red-500 hover:bg-red-700 text-white 
+
+                    <button onclick="hideContainer()" class="font-semibold bg-red-500 hover:bg-red-700 text-white 
                     font-bold py-1 px-1 border border-red-700 rounded"><i class="ri-close-fill"></i></button>
+
                 </div>
                 <div class="grid grid-cols-3 gap-4 mt-4">
                     {% for card in card_set %}
@@ -108,8 +110,8 @@
                             placeholder="card above!">
 
                         <label for="setid">Set ID:</label>
-                        <input class="text-center font-semibold clear-input" name="setid" type="integer" placeholder=1
-                            value="{{ card_setid }}">
+                        <input id="set-input" class="text-center font-semibold clear-input" name="setid" type="integer"
+                            placeholder=1 value="{{ card_setid }}">
                 </form>
 
                 <div class="flex flex-row lg:space-x-32 justify-center gap-4 mt-2">
@@ -122,7 +124,8 @@
         </div>
     </div>
     </div>
-    <script src="{% static 'dialog-edit.js' %}"></script>
+    <script src="{% static 'dialog-edit.js' %}" defer></script>
+    <script src="{% static 'close-open.js' %}" defer></script>
 </body>
 {% endblock %}
 
