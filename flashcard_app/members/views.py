@@ -4,6 +4,7 @@ from django.template import loader
 from .forms import UserForm, cardForm, createSetForm, UserCreationForm
 from .models import *
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -27,6 +28,7 @@ def success_page(request):
     return render(request, "success.html")
 
 
+@login_required(login_url="/login")
 def study(request):
     user_setid = 1
     user_selected_set = "Select A Set"
