@@ -19,13 +19,21 @@
     <div class="container flex justify-center items-center">
         <div class="flex flex-col">
             <!-- configure form -->
-            <form method="post" class="space-y-10">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <div class="flex justify-center items-center">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
-                </div>
-            </form>
+            <div class="flex justify-center items-center">
+                <!-- CONFIGURE THIS NEXT CHRIS FIX THE VIEW FOR AUTHENTICATE -->
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="flex flex-col gap-4">
+                        {{ form.username }}
+                        <input type="text" placeholder="username" name="username">
+
+                        {{ form.password }}
+                        <input type="text" placeholder="password" name="password">
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </div>
+                </form>
+            </div>
 
         </div>
     </div>

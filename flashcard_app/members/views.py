@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .forms import UserForm, cardForm, createSetForm, UserCreationForm
 from .models import *
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -134,8 +135,25 @@ def save_card(request):
     return redirect("create-set")
 
 
-def sign_in(request):
-    return render(request, "sign-in.html")
+def login_user(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect("home")
+        else:
+            return render(request, "login.html")
+
+    return render(request, "login.html")
+
+
+def logout_user(request):
+    logout(request)
+
+    return redirect("home")
 
 
 def register(request):

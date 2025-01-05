@@ -11,7 +11,8 @@ urlpatterns = [
     path("remove-card/", views.remove_last_card, name="remove-card"),
     path("create-set/", views.create_set, name="create-set"),
     path("save-card/", views.save_card, name="save-card"),
-    path("sign-in/", views.sign_in, name="sign-in"),
+    path("login/", views.login_user, name="login"),
     path("register/", views.register, name="register"),
     path("register-load/", views.register_load, name="register-load"),
+    path("logout/", views.logout_user, name="logout"),
 ]
