@@ -131,6 +131,7 @@ def save_card(request):
         form = createSetForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect("study")
 
     return redirect("create-set")
 

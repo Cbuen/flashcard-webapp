@@ -20,7 +20,7 @@
     <!-- term & definition editor container -->
     <div class=" lg:mt-24 flex justify-center">
         <div class="bg-gray-300 p-4">
-            <form action="/save-card" method="post">
+            <form action="/save-card/" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <div class="flex flex-row justify-center">
