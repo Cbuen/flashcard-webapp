@@ -32,7 +32,7 @@ def success_page(request):
 def study(request):
     user_setid = 1
     user_selected_set = "Select A Set"
-    card_sets = Sets.objects.all()
+    card_sets = Sets.objects.filter(userid=request.user.id)
     card_set = Cards.objects.filter(setid=user_setid)
 
     if request.method == "POST":
@@ -66,7 +66,7 @@ def study(request):
 
 
 def edit(request):
-    card_sets = Sets.objects.all()
+    card_sets = Sets.objects.filter(userid=request.user.id)
     user_selected_set = 1
 
     if request.method == "POST":
@@ -133,7 +133,7 @@ def save_card(request):
         form = createSetForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("study")
+            return redirect("edit")
 
     return redirect("create-set")
 
@@ -146,6 +146,7 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
+            print(request.user.id)
             return redirect("home")
         else:
             return render(request, "login.html")
