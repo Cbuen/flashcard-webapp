@@ -86,9 +86,9 @@ schema_passwords = {"windows": "root", "macbook": "rootroot"}
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": schema_title["macbook"],
+        "NAME": schema_title["windows"],
         "USER": "root",
-        "PASSWORD": schema_passwords["macbook"],
+        "PASSWORD": schema_passwords["windows"],
         "HOST": "localhost",
         "PORT": "3306",
     }

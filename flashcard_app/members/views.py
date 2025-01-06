@@ -68,7 +68,10 @@ def study(request):
 @login_required(login_url="/login")
 def edit(request):
     card_sets = Sets.objects.filter(userid=request.user.id)
-    user_selected_set = 1
+    if Sets.objects.filter(userid=request.user.id).first().setid:
+        user_selected_set = Sets.objects.filter(userid=request.user.id).first().setid
+    else:
+        user_selected_set = 1
 
     if request.method == "POST":
         user_selected_set = request.POST.get("selected_set")
