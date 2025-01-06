@@ -86,7 +86,7 @@ def edit(request):
             {
                 "card_sets": card_sets,
                 "card_set": card_set,
-                "card_setid": selected_set_id,
+                "card_setid": int(selected_set_id),
             },
         )
 

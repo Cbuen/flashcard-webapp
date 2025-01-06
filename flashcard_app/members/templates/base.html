@@ -26,6 +26,7 @@
                 <li><a href="/study">Study Cards</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="/edit">Edit Sets</a></li>
+                {% endif %}
                 <span class="mx-44"><span>
                         <a href="/">
                             <h1 class=" hover:text-blue-400 font-awesome text-xl font-semibold">Study
@@ -33,7 +34,6 @@
                         </a>
                     </span></span>
                 <li><a href="/logout">logout</a></li>
-                {% endif %}
             </ul>
         </nav>
     </div>
