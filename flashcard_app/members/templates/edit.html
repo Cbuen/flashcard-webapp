@@ -44,11 +44,10 @@
                                 Set ID:
                                 {{ card.setid}}
                             </h4>
-                            <button onclick="showContainer()"
-                            class="font-medium text-white card-set-button p-4 rounded
+                            <button onclick="showContainer()" class="font-medium text-white card-set-button p-4 rounded
                             {% if card_setid == card.setid %}bg-blue-600{% else %}bg-blue-500{% endif %}
-                            hover:bg-blue-700"
-                                id="{{ card.setid }}" name="selected_set" value="{{ card.setname }}|{{ card.setid }}">
+                            hover:bg-blue-700" id="{{ card.setid }}" name="selected_set"
+                                value="{{ card.setname }}|{{ card.setid }}">
                                 <h1>{{ card.setname }}</h1>
                             </button>
                         </div>

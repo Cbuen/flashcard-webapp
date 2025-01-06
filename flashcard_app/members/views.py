@@ -1,10 +1,16 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from .forms import UserForm, cardForm, createSetForm, UserCreationForm
+from .forms import (
+    UserForm,
+    cardForm,
+    createSetForm,
+    UserCreationForm,
+)
 from .models import *
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import PasswordChangeForm
 
 # Create your views here.
 
@@ -179,3 +185,19 @@ def register_load(request):
             form = UserCreationForm()
 
     return redirect("register")
+
+
+@login_required(login_url="/login")
+def password_change(request):
+    return render(request, "password_change.html")
+
+
+def password_change_done(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+
+        print(form.is_valid())
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+    return redirect("password_change")

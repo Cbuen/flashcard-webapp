@@ -33,7 +33,10 @@
                                 Quick</h1>
                         </a>
                     </span></span>
-                <li><a href="/logout">logout</a></li>
+                {% if user.is_authenticated %}
+                <li><a class="hover:text-blue-400" href="/password_change">Change Password</a></li>
+                <li><a class="hover:text-blue-400" href="/logout">Logout</a></li>
+                {% endif %}
             </ul>
         </nav>
     </div>
