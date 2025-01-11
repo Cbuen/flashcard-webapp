@@ -23,8 +23,13 @@
         <div class="flex justify-center gap-4 mt-24">
             <div class="bg-gray-300 p-4">
                 <div class="flex flex-row justify-center">
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold 
+
+                    <form action="./delete-set" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button name="delete_set_id" value="{{ card_setid }}" class="bg-red-500 hover:bg-red-700 text-white font-bold 
                     py-1 px-1 border border-red-700 rounded">Delete Set</button>
+                    </form>
                     <h1 class="font-semibold lg:mx-12">Study Editor</h1>
                     <form action="/create-set" method="get">
                         {% csrf_token %}
@@ -62,10 +67,11 @@
             <div class="bg-gray-300 p-4">
                 <div class="flex flex-row justify-center">
 
-                    <form action="/remove-last-card/" method="post">
+                    <form action="/remove-card/" method="post">
                         {% csrf_token %}
                         {{ form }}
-                        <button name="card_setid" value="{{ card_setid }}" class="bg-red-500 hover:bg-red-700 text-white font-bold 
+                        <input hidden id="hidden-card-id" name="card_delete_id" value="">
+                        <button id="delete-card-button" name="card_setid" value="{{ card_setid }}" class="bg-red-500 hover:bg-red-700 text-white font-bold 
                     py-1 px-1 border border-red-700 rounded"><i class="ri-subtract-fill"></i></button>
                     </form>
                     <h1 class="text-center font-semibold lg:mx-24">Editor</h1>
@@ -79,8 +85,8 @@
                     <button data-term="{{ card.term }}" data-definition="{{ card.definition }}"
                         data-selectedset="{{ card_setid }}"
                         class="font-medium text-white card-set-button bg-blue-500 hover:bg-blue-700 p-4 rounded"
-                        id="{{ card.cardid }}" name="selected_card" value="{{ card.setid }}|{{ card.cardid }}"
-                        onclick="userSet(this)">
+                        id="{{ card.cardid }}" data-cardid="{{ card.cardid }}" name="selected_card"
+                        value="{{ card.setid }}|{{ card.cardid }}" onclick="userSet(this); deleteCardHelper(this)">
                         <h1>{{ card.term }}</h1>
                     </button>
                     {% endfor %}
@@ -129,6 +135,7 @@
     </div>
     <script src="{% static 'dialog-edit.js' %}" defer></script>
     <script src="{% static 'close-open.js' %}" defer></script>
+    <script src="{% static 'delete-card-helper.js' %}" defer></script>
 </body>
 {% endblock %}
 
