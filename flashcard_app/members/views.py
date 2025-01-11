@@ -137,6 +137,11 @@ def create_set(request):
 
     return render(request, "create_set.html")
 
+def delete_set(request):
+    set_id = request.POST.get("delete_set_id")
+    Sets.objects.filter(setid=set_id).delete()
+    return redirect("edit")
+
 
 def save_card(request):
     if request.method == "POST":

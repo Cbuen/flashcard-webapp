@@ -23,8 +23,14 @@
         <div class="flex justify-center gap-4 mt-24">
             <div class="bg-gray-300 p-4">
                 <div class="flex flex-row justify-center">
-                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold 
+                    <!-- delete set button -->
+                    <form action="./delete-set" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button name="delete_set_id" value="{{ card_setid }}" class="bg-red-500 hover:bg-red-700 text-white font-bold 
                     py-1 px-1 border border-red-700 rounded">Delete Set</button>
+                    </form>
+
                     <h1 class="font-semibold lg:mx-12">Study Editor</h1>
                     <form action="/create-set" method="get">
                         {% csrf_token %}
@@ -45,8 +51,8 @@
                                 {{ card.setid}}
                             </h4>
                             <button onclick="showContainer()" class="font-medium text-white card-set-button p-4 rounded
-                            {% if card_setid == card.setid %}bg-blue-600{% else %}bg-blue-500{% endif %}
-                            hover:bg-blue-700" id="{{ card.setid }}" name="selected_set"
+                            {% if card_setid == card.setid %}bg-blue-800{% else %}bg-blue-500{% endif %}
+                            hover:bg-blue-800" id="{{ card.setid }}" name="selected_set"
                                 value="{{ card.setname }}|{{ card.setid }}">
                                 <h1>{{ card.setname }}</h1>
                             </button>
