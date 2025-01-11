@@ -117,6 +117,14 @@ def edit_card_set(request):
 
     return render(request, "edit", {"form": form})
 
+def remove_card(request):
+    card_id = request.POST.get("selected_card")
+    print(card_id)
+
+
+    # Cards.objects.filter(cardid=card_id).delete()
+    return redirect("edit")
+
 
 def remove_last_card(request):
     card_setid = request.POST.get("card_setid")
