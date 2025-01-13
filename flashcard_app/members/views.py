@@ -110,6 +110,10 @@ def edit(request):
     )
 
 
+def set_editor(request):
+    return render(request, "set_editor.html")
+
+
 def edit_card_set(request):
 
     if request.method == "POST":

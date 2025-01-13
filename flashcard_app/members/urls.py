@@ -8,6 +8,7 @@ urlpatterns = [
     path("study/", views.study, name="study"),
     path("edit/", views.edit, name="edit"),
     path("edit/card-set", views.edit_card_set, name="card-set"),
+    path("edit/set-editor", views.set_editor, name="set-editor"),
     path("remove-last-card/", views.remove_last_card, name="remove-last-card"),
     path("remove-card/", views.remove_card, name="remove-card"),
     path("create-set/", views.create_set, name="create-set"),
