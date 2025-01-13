@@ -74,8 +74,13 @@ def study(request):
 @login_required(login_url="/login")
 def edit(request):
     card_sets = Sets.objects.filter(userid=request.user.id)
-    if Sets.objects.filter(userid=request.user.id).first().setid:
-        user_selected_set = Sets.objects.filter(userid=request.user.id).first().setid
+
+    # checks if user has any sets
+    if Sets.objects.filter(userid=request.user.id).first() != None:
+        if Sets.objects.filter(userid=request.user.id).first().setid:
+            user_selected_set = (
+                Sets.objects.filter(userid=request.user.id).first().setid
+            )
     else:
         user_selected_set = 1
 
@@ -118,9 +123,15 @@ def edit_card_set(request):
     return render(request, "edit", {"form": form})
 
 
+# if user slected card to delete, delete that card
+# if user did not select a card to delete, delete the last card
 def remove_card(request):
     card_id = request.POST.get("card_delete_id")
-    Cards.objects.filter(cardid=card_id).delete()
+    if card_id:
+        Cards.objects.filter(cardid=card_id).delete()
+    else:
+        last_card = Cards.objects.last()
+        last_card.delete()
 
     return redirect("edit")
 
@@ -209,7 +220,7 @@ def password_change_done(request):
     if request.method == "POST":
         form = PasswordChangeForm(user=request.user, data=request.POST)
 
-        print(form.is_valid())
+        print(request)
         if form.is_valid():
             form.save()
             return redirect("home")

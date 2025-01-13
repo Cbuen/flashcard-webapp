@@ -6,6 +6,8 @@
     height: 100vh;
   }
 
+.container.flex.flex-row.w-screen.justify-center.items-center.mx-auto {}
+
   .flip-card {
     background-color: transparent;
     transition: 1s ease-in-out;

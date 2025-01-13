@@ -54,9 +54,10 @@
         </div>
 
         <!-- card set list -->
-        <div class="relative flex flex-col bg-gray-200 rounded-lg shadow-md card-set-container">
+        <!-- REMOVE -->
+        <div class="relative flex flex-col bg-gray-200 rounded-lg shadow-md card-set-container m-auto">
 
-            <div class="col-span-3 flex items-center justify-center gap-64">
+            <div class="col-span-3 flex items-center justify-center gap-64 px-36">
 
                 <!-- setlist edit and hide button -->
                 <button id="card-list-button" class="absolute top-3 left-6 ri-list-unordered text-3xl"><i
@@ -71,12 +72,12 @@
                 <!-- Card items -->
                 {% for card in card_set_list %}
                 <li
-                    class="bg-blue-300 hover:bg-blue-400 p-4 col-span-3 flex items-center justify-center shadow-sm card-item">
-                    <form action="/study/" method="post">
+                    class="col-span-3 bg-blue-300 hover:bg-blue-400 p-4 flex items-center justify-center shadow-sm card-item h-full">
+                    <form action="/study/" method="post" class="w-full h-full">
                         {% csrf_token %}
                         {{ form }}
-                        <button type="submit" class="font-medium text-white card-set-button" id="{{ card.setid }}"
-                            name="selected_card" value="{{ card.setname }}|{{ card.setid }}">
+                        <button type="submit" class="font-medium text-white card-set-button w-full h-full"
+                            id="{{ card.setid }}" name="selected_card" value="{{ card.setname }}|{{ card.setid }}">
                             {{ card.setname }}
                         </button>
                     </form>
