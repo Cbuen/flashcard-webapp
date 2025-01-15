@@ -49,6 +49,7 @@
             </div>
         </div>
 
+        {% if card_setid %}
         <!-- term & definition editor container -->
         <div id="term-container" class="lg:mt-24 flex justify-center">
             <div class="bg-gray-300 p-4">
@@ -62,6 +63,9 @@
                         <button type="button" class="font-semibold bg-red-500 hover:bg-red-700 text-white 
                     font-bold h-9 px-2 border border-red-700 rounded"><i class="ri-close-fill"></i></button>
                     </div>
+                    <div class="flex justify-center items-center font-bold">
+                        <h3>{{ set_name }}</h3>
+                    </div>
                     <div class="flex flex-col gap-4 mt-4">
                         <label for="term">Term:</label>
                         <input class="text-center font-semibold clear-input" name="term" type="text"
@@ -71,8 +75,7 @@
                         <input class="text-center font-semibold clear-input" name="definition" type="text"
                             placeholder="card above!">
 
-                        <label for="setid">Set ID:</label>
-                        <input id="set-input" class="text-center font-semibold clear-input" name="setid" type="integer"
+                        <input id="set-input" class="text-center font-semibold clear-input" name="setid" type="hidden"
                             placeholder=1 value="{{ card_setid }}">
                 </form>
 
@@ -84,18 +87,19 @@
                 </div>
                 <br>
                 <div class="flex flex-row justify-center">
-                <form action="./delete-set" method="post">
-                    {% csrf_token %}
-                    {{ form }}
-                <button name="delete_set_id" value="{{ card_setid }}" class="bg-red-500 hover:bg-red-700 text-white font-bold 
+                    <form action="./delete-set" method="post">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button name="delete_set_id" value="{{ card_setid }}" class="bg-red-500 hover:bg-red-700 text-white font-bold 
                     py-1 px-1 border border-red-700 rounded">Delete Set</button>
-                </form>
+                    </form>
                 </div>
+            </div>
         </div>
-    </div>
-    <script src="{% static 'dialog-edit.js' %}" defer></script>
-    <script src="{% static 'close-open.js' %}" defer></script>
-    <script src="{% static 'delete-card-helper.js' %}" defer></script>
+        {% endif %}
+        <script src="{% static 'dialog-edit.js' %}" defer></script>
+        <script src="{% static 'close-open.js' %}" defer></script>
+        <script src="{% static 'delete-card-helper.js' %}" defer></script>
 </body>
 {% endblock %}
 
