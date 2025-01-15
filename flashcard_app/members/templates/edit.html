@@ -21,14 +21,14 @@
     <!-- card selection container -->
     <div class="flex flex-col">
         <div class="flex justify-center gap-4 mt-24">
-            <div class="bg-gray-300 p-4">
-                <div class="flex flex-row justify-center">
-                    <h1 class="font-semibold lg:mx-12">Card Sets</h1>
+            <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                <div class="flex flex-row justify-between items-center">
+                    <h1 class="text-2xl font-bold text-gray-800">Card Sets</h1>
                     <form action="/create-set" method="get">
                         {% csrf_token %}
                         {{ form }}
                         <button
-                            class="font-medium text-white card-set-button bg-blue-500 hover:bg-blue-700 p-1 rounded">Create
+                            class="font-medium text-white bg-blue-500 hover:bg-blue-700 p-2 rounded transition duration-200 ease-in-out">Create
                             Set</button>
                     </form>
                 </div>

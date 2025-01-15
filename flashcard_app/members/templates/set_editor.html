@@ -22,9 +22,9 @@
     <div class="flex flex-col">
 
         <!-- edit container -->
-        <div id="edit-container" class=" lg:mt-24 flex justify-center">
-            <div class="bg-gray-300 p-4">
-                <div class="flex flex-row justify-center">
+        <div id="edit-container" class="lg:mt-24 flex justify-center">
+            <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                <div class=" flex flex-row justify-center">
 
                     <form action="/remove-card/" method="post">
                         {% csrf_token %}
@@ -52,8 +52,8 @@
         {% if card_setid %}
         <!-- term & definition editor container -->
         <div id="term-container" class="lg:mt-24 flex justify-center">
-            <div class="bg-gray-300 p-4">
-                <form action="./card-set" method="post">
+            <div class="bg-gray-200 p-6 rounded-lg shadow-lg">
+                <form action=" ./card-set" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <div class="flex flex-row justify-center">
