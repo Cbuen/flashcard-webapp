@@ -113,18 +113,17 @@ def edit(request):
 def set_editor(request):
     return render(request, "set_editor.html")
 
-
+# checks if term and def are not empty
 def edit_card_set(request):
-
     if request.method == "POST":
         form = cardForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() and request.POST.get("term") and request.POST.get("definition"):
             form.save()
             return redirect("edit")  # Make sure you have this URL name defined
     else:
         form = cardForm()
 
-    return render(request, "edit", {"form": form})
+    return redirect("edit")
 
 
 # if user slected card to delete, delete that card
@@ -159,10 +158,17 @@ def create_set(request):
 
     return render(request, "create_set.html")
 
-
-def delete_set(request):
+# add some type of confirmation before deleting set
+def delete_set(request): 
     set_id = request.POST.get("delete_set_id")
-    Sets.objects.filter(setid=set_id).delete()
+
+    if Sets.objects.filter(setid=set_id):
+        if Cards.objects.filter(setid=set_id).count() > 0:
+            Cards.objects.filter(setid=set_id).all().delete()
+
+        Sets.objects.filter(setid=set_id).delete()
+    else:
+        print("No cards found")
     return redirect("edit")
 
 
