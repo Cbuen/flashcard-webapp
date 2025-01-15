@@ -75,6 +75,13 @@ def study(request):
 def edit(request):
     card_sets = Sets.objects.filter(userid=request.user.id)
 
+    # intial load screen before user selects a set
+    if request.method == "GET":
+        return render(request, "edit.html", {"card_sets": card_sets})
+    
+def set_editor(request):
+
+    card_sets = Sets.objects.filter(userid=request.user.id)
     # checks if user has any sets
     if Sets.objects.filter(userid=request.user.id).first() != None:
         if Sets.objects.filter(userid=request.user.id).first().setid:
@@ -93,24 +100,13 @@ def edit(request):
         print(selected_set_id)
         return render(
             request,
-            "edit.html",
+            "set_editor.html",
             {
                 "card_sets": card_sets,
                 "card_set": card_set,
                 "card_setid": int(selected_set_id),
             },
         )
-
-    card_set = Cards.objects.filter(setid=user_selected_set)
-
-    return render(
-        request,
-        "edit.html",
-        {"card_sets": card_sets, "card_set": card_set, "card_setid": user_selected_set},
-    )
-
-
-def set_editor(request):
     return render(request, "set_editor.html")
 
 # checks if term and def are not empty
@@ -129,14 +125,21 @@ def edit_card_set(request):
 # if user slected card to delete, delete that card
 # if user did not select a card to delete, delete the last card
 def remove_card(request):
+    set_id = request.POST.get("card_setid")
     card_id = request.POST.get("card_delete_id")
-    if card_id:
-        Cards.objects.filter(cardid=card_id).delete()
-    else:
-        last_card = Cards.objects.last()
-        last_card.delete()
 
-    return redirect("edit")
+
+    if set_id and Cards.objects.filter(setid=set_id).count() > 0 and request.POST.get("card_delete_id") != "":
+        
+        if Cards.objects.filter(setid=set_id, cardid=card_id):
+            Cards.objects.filter(cardid=card_id).delete()
+        else:
+            last_card = Cards.objects.last()
+            last_card.delete()
+    else:
+        redirect("/edit/set-editor")
+
+    return redirect("/edit/set-editor")
 
 
 def remove_last_card(request):
@@ -162,13 +165,12 @@ def create_set(request):
 def delete_set(request): 
     set_id = request.POST.get("delete_set_id")
 
-    if Sets.objects.filter(setid=set_id):
+    if set_id and Sets.objects.filter(setid=set_id):
         if Cards.objects.filter(setid=set_id).count() > 0:
             Cards.objects.filter(setid=set_id).all().delete()
 
         Sets.objects.filter(setid=set_id).delete()
-    else:
-        print("No cards found")
+
     return redirect("edit")
 
 

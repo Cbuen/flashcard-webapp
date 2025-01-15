@@ -34,10 +34,6 @@
                     py-1 px-1 border border-red-700 rounded"><i class="ri-subtract-fill"></i></button>
                     </form>
                     <h1 class="text-center font-semibold lg:mx-24">Editor</h1>
-
-                    <button onclick="hideContainer()" class="font-semibold bg-red-500 hover:bg-red-700 text-white 
-                    font-bold py-1 px-1 border border-red-700 rounded"><i class="ri-close-fill"></i></button>
-
                 </div>
                 <div class="grid grid-cols-3 gap-4 mt-4">
                     {% for card in card_set %}
@@ -61,8 +57,6 @@
                     {{ form.as_p }}
                     <div class="flex flex-row justify-center">
                         <div class="flex flex-col">
-                            <button class="bg-green-500 hover:bg-green-700 text-white font-bold 
-                    py-2 px-2 border border-green-700 rounded"><i class="ri-add-fill"></i></button>
                         </div>
                         <h1 class="text-center font-semibold lg:mx-24">Term & Definition Editor</h1>
                         <button type="button" class="font-semibold bg-red-500 hover:bg-red-700 text-white 
@@ -85,12 +79,19 @@
                 <div class="flex flex-row lg:space-x-32 justify-center gap-4 mt-2">
                     <button type="button" onclick="clearInput()" class="bg-red-500 hover:bg-red-700 text-white font-bold 
                             py-2 px-4 border border-red-700 rounded">Clear</button>
-                    <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold 
+                    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold 
                         py-2 px-4 border border-green-700 rounded">Save</button>
                 </div>
-            </div>
+                <br>
+                <div class="flex flex-row justify-center">
+                <form action="./delete-set" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                <button name="delete_set_id" value="{{ card_setid }}" class="bg-red-500 hover:bg-red-700 text-white font-bold 
+                    py-1 px-1 border border-red-700 rounded">Delete Set</button>
+                </form>
+                </div>
         </div>
-    </div>
     </div>
     <script src="{% static 'dialog-edit.js' %}" defer></script>
     <script src="{% static 'close-open.js' %}" defer></script>
