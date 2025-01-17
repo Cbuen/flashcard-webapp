@@ -139,7 +139,7 @@ def remove_card(request):
     else:
         redirect("/edit/set-editor")
 
-    return redirect("/edit/set-editor")
+    return redirect("/edit")
 
 
 def remove_last_card(request):
