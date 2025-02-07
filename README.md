@@ -1,4 +1,4 @@
-# <i class="ri-money-dollar-circle-line"></i> **Simple Budget Web App** ✏️
+# **Simple Budget Web App** 
 
 ## **Description**
 
