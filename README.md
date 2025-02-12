@@ -1,4 +1,4 @@
-# **Simple Budget Web App** 
+# **Flashcard Study Web App** 
 
 ## **Description**
 
