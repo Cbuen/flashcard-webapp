@@ -29,7 +29,5 @@ Study Without the Fluff
 
 Simple future goals I wish to add as I improve my skills and knowledge:
 
-1. **Mobile App Development**: Add mobile usability
-2. **Database integration**
-3. **User authentication/profile infrastructure**
-
+1. **Shareable study sets**
+2.  **Card set generator**
