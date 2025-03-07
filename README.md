@@ -13,19 +13,18 @@ Study Without the Fluff
 - Edit pre-exisitng card sets
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;">
-  <img width="48%" alt="Screen Shot 2024-10-30 at 9 10 28 PM" src="https://github.com/user-attachments/assets/dcce900d-583d-4b75-8789-961e125e952f">
-  <img width="48%" alt="Screen Shot 2024-10-30 at 9 18 32 PM" src="https://github.com/user-attachments/assets/470fe38c-a8bc-4056-bdd9-b19467f627c1">
-  <img width="48%" alt="Screen Shot 2024-10-30 at 9 18 41 PM" src="https://github.com/user-attachments/assets/cad0ddef-799c-42b9-a717-b2db646165ea">
-  <img width="48%" alt="Screen Shot 2024-10-30 at 9 19 54 PM" src="https://github.com/user-attachments/assets/3f38edaa-b65a-4ea7-ae0b-c48e00584f13">
+  <img width="48%" alt="Screen Shot 2024-10-30 at 9 10 28 PM" src="https://github.com/user-attachments/assets/054601ce-b428-449d-a778-4b15566d4dc5">
+  <img width="48%" alt="Screen Shot 2024-10-30 at 9 18 32 PM" src="https://github.com/user-attachments/assets/176dabba-9292-437d-879d-c3b51f023b03">
+  <img width="48%" alt="Screen Shot 2024-10-30 at 9 18 32 PM" src="https://github.com/user-attachments/assets/af0fd4f7-da29-4d1e-9502-e93cdeb677f6">
+  <img width="48%" alt="Screen Shot 2024-10-30 at 9 18 41 PM" src="https://github.com/user-attachments/assets/4ec1b2e1-5f53-4a4e-953c-57af8634717b">
+  <img width="48%" alt="Screen Shot 2024-10-30 at 9 19 54 PM" src="https://github.com/user-attachments/assets/45c53c6d-9d01-4d42-a7e4-8d6e8c6f537d">
 </div>
 
 ## **Technologies Used**
 
-- **Backend**: Python, Flask
+- **Backend**: Python, Django, MySQL
 - **Frontend**: HTML, CSS, JavaScript
-- **CSS Framework**: Bootstrap
-- **Data stored locally via json**
-
+- **CSS Framework**: Tailwind CSS v2
 ## **Future Goals**
 
 Simple future goals I wish to add as I improve my skills and knowledge:
@@ -33,3 +32,4 @@ Simple future goals I wish to add as I improve my skills and knowledge:
 1. **Mobile App Development**: Add mobile usability
 2. **Database integration**
 3. **User authentication/profile infrastructure**
+
