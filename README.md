@@ -2,14 +2,15 @@
 
 ## **Description**
 
-This is a simple budget web application built using Flask, Python, JavaScript, HTML, CSS, and Bootstrap. It allows users to plan budgets, keep track of spending & set financial goals to achieve.
+This is a minimal flashcard study web app built using Django, Python, MySQL, JavaScript, HTML and Tailwind CSS. It allows users create flash card sets of any category they please.
+Study Without the Fluff
 
 ## **Features**
 
-- Add, edit, and delete items to budget
-- Based on user's budget, spending categories will be generated
-- Sub-spending categories can be added
-- Create financial goals to reach and HTML can be adjusted for max $ amount
+- Create a personalized account for user authentication
+- Edit front and back of flash card
+- Delete and create new sets
+- Edit pre-exisitng card sets
 
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;">
   <img width="48%" alt="Screen Shot 2024-10-30 at 9 10 28 PM" src="https://github.com/user-attachments/assets/dcce900d-583d-4b75-8789-961e125e952f">
