@@ -14,7 +14,6 @@ Study Without the Fluff
 
 <div style="display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
             gap: 15px;
             max-width: 1200px;
             margin: 0 auto;
@@ -55,6 +54,7 @@ Study Without the Fluff
        alt="App screenshot 4" 
        src="https://github.com/user-attachments/assets/ea15b183-5496-4bfb-878a-e32b37c465d6">
 </div>
+
 
 
 
