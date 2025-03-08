@@ -12,12 +12,21 @@ Study Without the Fluff
 - Delete and create new sets
 - Edit pre-exisitng card sets
 
-<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px;">
-  <img width="48%" alt="Screen Shot 2024-10-30 at 9 10 28 PM" src="https://github.com/user-attachments/assets/054601ce-b428-449d-a778-4b15566d4dc5">
-  <img width="48%" alt="Screen Shot 2024-10-30 at 9 18 32 PM" src="https://github.com/user-attachments/assets/176dabba-9292-437d-879d-c3b51f023b03">
-  <img width="48%" alt="Screen Shot 2024-10-30 at 9 18 32 PM" src="https://github.com/user-attachments/assets/af0fd4f7-da29-4d1e-9502-e93cdeb677f6">
-  <img width="48%" alt="Screen Shot 2024-10-30 at 9 18 41 PM" src="https://github.com/user-attachments/assets/4ec1b2e1-5f53-4a4e-953c-57af8634717b">
-  <img width="48%" alt="Screen Shot 2024-10-30 at 9 19 54 PM" src="https://github.com/user-attachments/assets/45c53c6d-9d01-4d42-a7e4-8d6e8c6f537d">
+<div style="display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;">
+  <img style="width: 100%; 
+              height: 250px; 
+              object-fit: cover;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              transition: transform 0.2s;"
+       alt="App screenshot 1" 
+       src="YOUR_IMAGE_URL">
+  <!-- Repeat for other images -->
 </div>
 
 ## **Technologies Used**
