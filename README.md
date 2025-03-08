@@ -25,15 +25,8 @@ Study Without the Fluff
               transition: transform 0.2s;"
        alt="App screenshot 1" 
        src="https://github.com/user-attachments/assets/f0bb8691-0c88-4fde-aecb-ca9af559bd2c">
-</div>
-
-<div style="display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 10px;">
-  <img style="width: 50%; 
+            
+<img style="width: 50%; 
               object-fit: cover;
               border-radius: 8px;
               box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -41,6 +34,7 @@ Study Without the Fluff
        alt="App screenshot 1" 
        src="https://github.com/user-attachments/assets/ea15b183-5496-4bfb-878a-e32b37c465d6">
 </div>
+
 
 ## **Technologies Used**
 
