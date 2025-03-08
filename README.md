@@ -19,7 +19,6 @@ Study Without the Fluff
             margin: 0 auto;
             padding: 10px;">
   <img style="width: 100%; 
-              height: 250px; 
               object-fit: cover;
               border-radius: 8px;
               box-shadow: 0 2px 4px rgba(0,0,0,0.1);
