@@ -25,7 +25,7 @@ Study Without the Fluff
               box-shadow: 0 2px 4px rgba(0,0,0,0.1);
               transition: transform 0.2s;"
        alt="App screenshot 1" 
-       src="YOUR_IMAGE_URL">
+       src="">
   <!-- Repeat for other images -->
 </div>
 
@@ -34,7 +34,8 @@ Study Without the Fluff
 - **Backend**: Python, Django, MySQL
 - **Frontend**: HTML, CSS, JavaScript
 - **CSS Framework**: Tailwind CSS v2
-## **Future Goals**
+## **![please-login](https://github.com/user-attachments/assets/4e1eee9c-4bef-4242-ad69-d2a5e889d47c)
+Future Goals**
 
 Simple future goals I wish to add as I improve my skills and knowledge:
 
