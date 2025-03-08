@@ -43,7 +43,7 @@ Study Without the Fluff
               box-shadow: 0 2px 4px rgba(0,0,0,0.1);
               transition: transform 0.2s;"
        alt="App screenshot 3" 
-       src="https://github.com/user-attachments/assets/f0bb8691-0c88-4fde-aecb-ca9af559bd2c">
+       src="https://github.com/user-attachments/assets/1781f9fe-f23d-4b62-91b3-e91a59fe031a">
             
   <img style="width: 100%; 
               height: 100%;
@@ -52,7 +52,16 @@ Study Without the Fluff
               box-shadow: 0 2px 4px rgba(0,0,0,0.1);
               transition: transform 0.2s;"
        alt="App screenshot 4" 
-       src="https://github.com/user-attachments/assets/ea15b183-5496-4bfb-878a-e32b37c465d6">
+       src="https://github.com/user-attachments/assets/5d4f9b86-6aab-40a2-a784-f03312ece8b7">
+
+<img style="width: 100%; 
+              height: 100%;
+              object-fit: cover;
+              border-radius: 8px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+              transition: transform 0.2s;"
+       alt="App screenshot 4" 
+       src="https://github.com/user-attachments/assets/2099ddfc-08cd-48eb-ab37-61ce2e9a7269">
 </div>
 
 
